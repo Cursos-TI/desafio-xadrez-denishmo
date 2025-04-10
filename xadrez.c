@@ -1,32 +1,103 @@
 #include <stdio.h>
+#include <ctype.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+int main(){
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+    int i = 0, voltar; 
+    int idade, escolha, resultado;
+    int torre, bispo, rainha;
+    char nome[20];
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    // Menu interativo
+    printf("Bem-vindo ao jogo de Xadrez!\n");
+    printf("Digite seu primeiro nome:\n");
+    scanf("%s", &nome);
+    printf("Digite sua idade:\n");
+    scanf("%d", &idade);
+    printf("Cadastro realizado com sucesso!\n\n");
+    printf("Escolha uma peça para mover:\n");
+    printf("1. Torre\n");
+    printf("2. Bispo\n");
+    printf("3. Rainha\n");
+    printf("4. Sair\n");
+    scanf("%d", &escolha);
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    //Switch - Escolha de opções e Calcúlo das condições
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    switch (escolha)
+    {
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+   
+    case 1:
+    //Aqui foi usado o For ------------------------------------------
+        printf("Você escolheu Torre\n");
+        printf("Quantas casas deseja mover? 1 a 5\n");
+        scanf("%d", &torre);
+
+       
+        if (torre <= 5){
+            printf("Você moveu %d casas\n", torre);
+        for  (int i = 0; i < torre; i++)
+        {
+            printf("Direita\n");
+        }
+        } else {
+            printf("Número inválido, Digite um número de 1 a 5\n");
+        }
+    break;
+
+    case 2:
+    //Aqui foi usado o do while -----------------------------------------
+        printf("Você escolheu Bispo\n");
+        printf("Quantas casas deseja mover? 1 a 5\n");
+        scanf("%d", &bispo);
+        printf("Você moveu %d casas\n", bispo);
+
+        do
+        {
+        if(bispo <= 5){
+            printf("Cima, Direita\n");
+            i++;
+            
+        } else {
+            printf("Número inválido, Digite um número de 1 a 5\n");
+        }
+  
+        } while (i < bispo);
+    break;
+
+    case 3:
+    //Aqui foi usado o while ---------------------------------------------------
+        printf("Você escolheu Rainha\n");
+        printf("Quantas casas deseja mover? 1 a 8\n");
+        scanf("%d", &rainha);
+        printf("Você moveu %d casas\n", rainha);
+
+        if(rainha <= 8){
+            while (i < rainha)
+        {
+            printf("Esquerda\n");
+            i++;
+        }
+        } else {
+            printf("Número inválido, Digite um número de 1 a 8\n");
+        }
+        
+    break;
+
+    case 4:
+    //Menu sair.........................................................
+        printf("Saindo...\n");
+        
+    break;
+
+    default:
+        printf("Opção inválida, digite um número de 1 a 4!\n");
+        break;
+    }
 
     return 0;
+
 }
