@@ -4,8 +4,9 @@
 int main(){
 
     int i = 0, voltar; 
-    int idade, escolha, resultado;
+    int idade, escolha, escolhaCavalo, resultado;
     int torre, bispo, rainha;
+    int cavalo = 1;
     char nome[20];
 
 
@@ -20,7 +21,8 @@ int main(){
     printf("1. Torre\n");
     printf("2. Bispo\n");
     printf("3. Rainha\n");
-    printf("4. Sair\n");
+    printf("4. Cavalo\n");
+    printf("5. Sair\n");
     scanf("%d", &escolha);
 
 
@@ -86,8 +88,69 @@ int main(){
         }
         
     break;
-
+  
+    //Adicionei uma case nova para o Cavalo, nela vc pode escolher a direção que desejar
     case 4:
+        printf("Você escolheu Cavalo\n");
+        printf("Qual movimento deseja fazer?\n");
+        printf("1. Pra cima e esquerda\n");
+        printf("2. Pra cima e direita\n");
+        printf("3. Pra baixo e esquerda\n");
+        printf("4. Pra baixo e direita\n");
+        scanf("%d", &escolhaCavalo);
+
+        switch (escolhaCavalo)
+        {
+            case 1:
+            while (cavalo--)
+        {
+            for (int i = 0; i < 2; i++){
+                printf("Cima\n");
+            }
+            printf("Esquerda\n");
+        }
+            break;
+
+            case 2:
+            while (cavalo--)
+        {
+            for (int i = 0; i < 2; i++){
+                printf("Cima\n");
+            }
+            printf("Direita\n");
+        }
+            break;
+
+            case 3:
+            while (cavalo--)
+        {
+            for (int i = 0; i < 2; i++){
+                printf("Baixo\n");
+            }
+            printf("Esquerda\n");
+        }
+            break;
+
+            case 4:
+            while (cavalo--)
+        {
+            for (int i = 0; i < 2; i++){
+                printf("Baixo\n");
+            }
+            printf("Direita\n");
+        }
+            break;
+
+            default:
+            printf("Opção inválida, digite um número de 1 a 4!\n");
+            break;
+        }
+
+        
+    
+    break;
+
+    case 5:
     //Menu sair.........................................................
         printf("Saindo...\n");
         
