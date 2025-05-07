@@ -1,11 +1,59 @@
 #include <stdio.h>
-#include <ctype.h>
+
+//Função Recursiva para imprimir a movimentação das peças!
+void torreRecursivo(int torreR) {
+    if (torreR > 0){
+        printf("Direita\n");
+        torreRecursivo(torreR - 1);
+    }
+}
+
+
+void bispoRecursivo(int i){
+  
+    for(i = 1; i <= 5; i++)
+    printf("Cima, direita\n ");
+    {
+        for(i = 1; i <= 5; i++)
+      
+
+        printf("\n");
+    }
+
+}
+
+
+void rainhaRecursivo(int rainhaR){
+    if (rainhaR > 0){
+        printf("Esquerda\n");
+        rainhaRecursivo(rainhaR - 1);
+    }
+}
+
+void cavaloRecursivo(int cima){
+    int direita;
+    for(cima = 1; cima <= 2; cima++)
+    printf("Cima\n");
+    {
+        for(direita = 1; direita <= 1; direita++)
+        {
+            printf("Direita");
+            
+        }
+
+        printf("\n");
+    }
+
+}
+
+
+//-----------------------VARIAVEIS------------------------------
 
 int main(){
 
     int i = 0, voltar; 
     int idade, escolha, escolhaCavalo, resultado;
-    int torre, bispo, rainha;
+    int torre = 5, bispo = 5, rainha = 8;
     int cavalo = 1;
     char nome[20];
 
@@ -33,120 +81,33 @@ int main(){
 
    
     case 1:
-    //Aqui foi usado o For ------------------------------------------
+    //Aqui foi usado o Recursivo
         printf("Você escolheu Torre\n");
-        printf("Quantas casas deseja mover? 1 a 5\n");
-        scanf("%d", &torre);
-
-       
-        if (torre <= 5){
-            printf("Você moveu %d casas\n", torre);
-        for  (int i = 0; i < torre; i++)
-        {
-            printf("Direita\n");
-        }
-        } else {
-            printf("Número inválido, Digite um número de 1 a 5\n");
-        }
+        printf("Voce moveu %d casas\n", torre);
+        torreRecursivo(torre);       
     break;
 
     case 2:
-    //Aqui foi usado o do while -----------------------------------------
+    //Aqui foi usado o Recursivo porém -----------------------------------------
         printf("Você escolheu Bispo\n");
-        printf("Quantas casas deseja mover? 1 a 5\n");
-        scanf("%d", &bispo);
-        printf("Você moveu %d casas\n", bispo);
-
-        do
-        {
-        if(bispo <= 5){
-            printf("Cima, Direita\n");
-            i++;
-            
-        } else {
-            printf("Número inválido, Digite um número de 1 a 5\n");
-        }
-  
-        } while (i < bispo);
+        printf("Voce moveu %d casas\n", bispo);
+        bispoRecursivo(bispo);
+        
     break;
 
     case 3:
-    //Aqui foi usado o while ---------------------------------------------------
+    //Aqui foi usado o Recursivo e loops aninhados ---------------------------------------------------
         printf("Você escolheu Rainha\n");
-        printf("Quantas casas deseja mover? 1 a 8\n");
-        scanf("%d", &rainha);
-        printf("Você moveu %d casas\n", rainha);
-
-        if(rainha <= 8){
-            while (i < rainha)
-        {
-            printf("Esquerda\n");
-            i++;
-        }
-        } else {
-            printf("Número inválido, Digite um número de 1 a 8\n");
-        }
+        printf("Voce moveu %d casas\n", rainha);
+        rainhaRecursivo(rainha);
         
     break;
   
-    //Adicionei uma case nova para o Cavalo, nela vc pode escolher a direção que desejar
+    //Adicionei loops aninhados com múltiplas variáveis
     case 4:
         printf("Você escolheu Cavalo\n");
-        printf("Qual movimento deseja fazer?\n");
-        printf("1. Pra cima e esquerda\n");
-        printf("2. Pra cima e direita\n");
-        printf("3. Pra baixo e esquerda\n");
-        printf("4. Pra baixo e direita\n");
-        scanf("%d", &escolhaCavalo);
+        cavaloRecursivo(cavalo);
 
-        switch (escolhaCavalo)
-        {
-            case 1:
-            while (cavalo--)
-        {
-            for (int i = 0; i < 2; i++){
-                printf("Cima\n");
-            }
-            printf("Esquerda\n");
-        }
-            break;
-
-            case 2:
-            while (cavalo--)
-        {
-            for (int i = 0; i < 2; i++){
-                printf("Cima\n");
-            }
-            printf("Direita\n");
-        }
-            break;
-
-            case 3:
-            while (cavalo--)
-        {
-            for (int i = 0; i < 2; i++){
-                printf("Baixo\n");
-            }
-            printf("Esquerda\n");
-        }
-            break;
-
-            case 4:
-            while (cavalo--)
-        {
-            for (int i = 0; i < 2; i++){
-                printf("Baixo\n");
-            }
-            printf("Direita\n");
-        }
-            break;
-
-            default:
-            printf("Opção inválida, digite um número de 1 a 4!\n");
-            break;
-        }
-
-        
     
     break;
 
